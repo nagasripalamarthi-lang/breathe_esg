@@ -1,0 +1,21 @@
+Employee ID,Trip ID,Start Date,End Date,Trip Purpose,Segment Type,Origin,Destination,Distance (km),Cost (USD),Currency,Cabin Class,Duration Days
+EMP001,T2024-001,2024-01-10,2024-01-12,Client Meeting,Flight,JFK,LAX,4000,450,USD,Economy,3
+EMP002,T2024-001,2024-01-10,2024-01-12,Client Meeting,Flight,JFK,LAX,4000,480,USD,Economy,3
+EMP001,T2024-001,2024-01-10,2024-01-12,Client Meeting,Hotel,LAX,LAX,0,200,USD,Standard,2
+EMP002,T2024-001,2024-01-10,2024-01-12,Client Meeting,Hotel,LAX,LAX,0,180,USD,Standard,2
+EMP001,T2024-001,2024-01-11,2024-01-11,Client Meeting,Ground Transport,LAX,Beverly Hills,50,85,USD,Economy,0
+EMP003,T2024-002,2024-01-15,2024-01-17,Conference,Flight,ORD,SFO,2800,380,USD,Economy,3
+EMP003,T2024-002,2024-01-15,2024-01-17,Conference,Hotel,SFO,SFO,0,220,USD,Standard,2
+EMP001,T2024-003,2024-01-20,2024-01-21,Training,Flight,LAX,DEN,,320,USD,Economy,2
+EMP004,T2024-004,2024-01-22,2024-01-24,Sales Call,Flight,JFK,BOS,350,,USD,Economy,2
+EMP004,T2024-004,2024-01-22,2024-01-24,Sales Call,Hotel,BOS,BOS,0,150,USD,Standard,2
+EMP002,T2024-005,2024-01-25,2024-01-27,Partner Meetings,Flight,LAX,MIA,3700,420,USD,Premium,3
+EMP002,T2024-005,2024-01-25,2024-01-27,Partner Meetings,Hotel,MIA,MIA,0,280,USD,Deluxe,2
+EMP002,T2024-005,2024-01-26,2024-01-26,Partner Meetings,Ground Transport,MIA,Miami Beach,35,65,USD,Taxi,0
+EMP005,T2024-006,2024-02-01,2024-02-03,Investor Pitch,Flight,SEA,NYC,3900,510,USD,Business,3
+EMP005,T2024-006,2024-02-01,2024-02-03,Investor Pitch,Hotel,NYC,NYC,0,350,USD,Luxury,2
+EMP003,T2024-007,2024-02-05,2024-02-06,Quarterly Review,Flight,SFO,LAX,540,250,USD,Economy,2
+EMP001,T2024-008,2024-02-10,2024-02-12,Workshop,Flight,LAX,AUS,1600,,USD,Economy,3
+EMP006,T2024-009,2024-02-12,2024-02-14,Board Meeting,Flight,BOS,DCA,500,180,USD,Economy,3
+EMP006,T2024-009,2024-02-12,2024-02-14,Board Meeting,Hotel,DCA,DCA,0,240,USD,Standard,2
+EMP006,T2024-009,2024-02-13,2024-02-13,Board Meeting,Ground Transport,DCA,Pentagon,20,,USD,Car Rental,0

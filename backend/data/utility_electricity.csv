@@ -1,0 +1,26 @@
+Meter ID,Location,Reading Date,Consumption (kWh),Period Type,Reading Status,Tariff Rate (USD/kWh)
+M001-NYC,Building A - Floor 3,2024-01-01,1240,Daily,Read,0.14
+M001-NYC,Building A - Floor 3,2024-01-02,1310,Daily,Read,0.14
+M002-NYC,Building B - Basement,2024-01-01,890,Daily,Estimate,0.16
+M002-NYC,Building B - Basement,2024-01-02,875,Daily,Read,0.16
+M001-NYC,Building A - Floor 3,2024-01-03,1295,Daily,Read,0.14
+M003-CHI,Warehouse Chicago,2024-01-01,2150,Daily,Read,0.12
+M001-NYC,Building A - Floor 3,2024-01-04,1420,Daily,Read,0.14
+M002-NYC,Building B - Basement,2024-01-03,,Daily,Meter Offline,0.16
+M002-NYC,Building B - Basement,2024-01-04,,Daily,Meter Offline,0.16
+M003-CHI,Warehouse Chicago,2024-01-02,2200,Daily,Read,0.12
+M001-NYC,Building A - Floor 3,2024-01-05,1310,Daily,Read,0.14
+M004-LA,Office LA Downtown,2024-01-01,650,Daily,Estimate,0.18
+M002-NYC,Building B - Basement,2024-01-05,920,Daily,Read,0.16
+M003-CHI,Warehouse Chicago,2024-01-03,2100,Daily,Estimate,0.12
+M001-NYC,Building A - Floor 3,2024-01-06,1240,Daily,Read,0.14
+M004-LA,Office LA Downtown,2024-01-02,680,Daily,Read,0.18
+M001-NYC,Building A - Floor 3,2024-01-07,3100,Daily,Read,0.14
+M002-NYC,Building B - Basement,2024-01-06,900,Daily,Read,0.16
+M003-CHI,Warehouse Chicago,2024-01-04,2000,Daily,Read,0.12
+M004-LA,Office LA Downtown,2024-01-03,700,Daily,Read,0.18
+M001-NYC,Building A - Floor 3,2024-01-08,1280,Daily,Read,0.14
+M002-NYC,Building B - Basement,2024-01-07,910,Daily,Read,0.16
+M004-LA,Office LA Downtown,2024-01-04,620,Daily,Estimate,0.18
+M003-CHI,Warehouse Chicago,2024-01-05,2050,Daily,Read,0.12
+M001-NYC,Building A - Floor 3,2024-01-09,1330,Daily,Read,0.14

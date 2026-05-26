@@ -1,0 +1,21 @@
+Werk,Kostenart,Material,Menge,Einheit,Datum,Kostenstelle,Beschreibung
+DE01,Fuel,Diesel,1500,L,01.01.2024,CC-4521,Monthly fuel consumption
+DE01,Fuel,Petrol,800,GAL,02.01.2024,CC-4521,Premium fuel for fleet vehicles
+UK02,Materials,Steel Sheets,2.5,TON,01.01.2024,CC-5310,Raw materials procurement
+UK02,Materials,Plastic Resin,1200,KG,03.01.2024,CC-5310,Production inputs
+DE01,Fuel,Natural Gas,45000,KUBM,05.01.2024,CC-4521,Heating - building operations
+FR03,Fuel,Diesel,3200,L,06.01.2024,CC-6100,Fleet maintenance and transport
+DE01,Materials,Aluminum Ingots,500,KG,08.01.2024,CC-4521,Manufacturing materials
+UK02,Fuel,Petrol,200,L,10.01.2024,CC-5310,Emergency equipment refuel
+DE01,Materials,Copper Wire,150,KG,12.01.2024,CC-4521,Electrical components
+FR03,Materials,Cement,12,TON,14.01.2024,CC-6100,Construction project materials
+DE01,Fuel,Diesle,2100,L,15.01.2024,CC-4521,Typo in product name - fuel
+UK02,Materials,Plastic,800,KG,16.01.2024,CC-5310,Unspecified plastic type
+DE01,Materials,Wood Timber,3,CBM,18.01.2024,CC-4521,Cubic meters - unusual unit
+FR03,Fuel,Diesel,1800,L,20.01.2024,CC-6100,Regular refueling
+DE01,Materials,Steel Coils,1.5,TON,22.01.2024,CC-4521,Production raw materials
+UK02,Materials,,950,KG,25.01.2024,CC-5310,Missing material name
+DE01,Fuel,LPG,500,KG,26.01.2024,CC-4521,Alternative fuel source
+FR03,Materials,Paint,200,L,28.01.2024,CC-6100,Maintenance and facilities
+DE01,Fuel,Diesel,1400,L,29.01.2024,CC-4521,Month-end fuel top-up
+UK02,Materials,Steel,2000,KG,31.01.2024,CC-5310,Slightly different unit than earlier
