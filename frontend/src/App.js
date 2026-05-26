@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import "./App.css";
 
 function App() {
   const [activeTab, setActiveTab] = useState("electricity");
@@ -7,89 +8,142 @@ function App() {
   const [travel, setTravel] = useState([]);
   const [fuel, setFuel] = useState([]);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [reviewMessage, setReviewMessage] = useState("");
+
+  const fileInputRef = useRef(null);
+
   useEffect(() => {
-    fetch("https://breathe-esg-1-n3wz.onrender.com/electricity/")
-      .then(res => res.json())
-      .then(data => {console.log(data);setElectricity(data)});
+    fetch("http://127.0.0.1:8000/electricity/")
+      .then((res) => res.json())
+      .then((data) => setElectricity(data))
+      .catch((err) => console.error(err));
 
-    fetch("https://breathe-esg-1-n3wz.onrender.com/travel/")
-      .then(res => res.json())
-      .then(data => {console.log(data);setTravel(data)});
+    fetch("http://127.0.0.1:8000/travel/")
+      .then((res) => res.json())
+      .then((data) => setTravel(data))
+      .catch((err) => console.error(err));
 
-    fetch("https://breathe-esg-1-n3wz.onrender.com/fuel/")
-      .then(res => res.json())
-      .then(data => {console.log(data);setFuel(data)});
+    fetch("http://127.0.0.1:8000/fuel/")
+      .then((res) => res.json())
+      .then((data) => setFuel(data))
+      .catch((err) => console.error(err));
   }, []);
 
-  const renderTable = (data) => {
-    if (!data || data.length === 0) return <p>No data found</p>;
+  const getCurrentData = () => {
+    if (activeTab === "electricity") return electricity;
+    if (activeTab === "travel") return travel;
+    if (activeTab === "fuel") return fuel;
+    return [];
+  };
 
-    const headers = Object.keys(data[0]);
+  const currentData = getCurrentData();
 
-    return (
-      <div style={{ overflowX: "auto" }}>
-        <table style={styles.table}>
-          <thead>
-            <tr>
-              {headers.map((h) => (
-                <th key={h} style={styles.th}>{h}</th>
-              ))}
-            </tr>
-          </thead>
+  const filteredData = currentData.filter((item) =>
+    JSON.stringify(item).toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-          <tbody>
-            {data.map((row, i) => (
-              <tr key={i}>
-                {headers.map((h) => (
-                  <td key={h + i} style={styles.td}>
-                    {row[h] !== null ? String(row[h]) : "N/A"}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+  const handleReview = () => {
+    const total = currentData.length;
+    setReviewMessage(
+      `Review completed. Total records in ${activeTab}: ${total}`
     );
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      alert(`Selected file: ${file.name}`);
+    }
   };
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>🌍 ESG Dashboard</h1>
+      <h1>🌍 ESG Dashboard</h1>
 
-      {/* Tabs */}
+      <input
+        type="text"
+        placeholder="Search all ESG data"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={styles.search}
+      />
+
+      <div style={styles.buttonRow}>
+        <button style={styles.button} onClick={handleReview}>
+          Review
+        </button>
+
+        <button style={styles.button} onClick={handleUploadClick}>
+          Upload
+        </button>
+
+        <input
+          type="file"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          onChange={handleFileChange}
+        />
+      </div>
+
+      <p>{reviewMessage}</p>
+
       <div style={styles.tabs}>
-        <input type="file" />
-        <button>Upload</button>
-        <button>Review</button>
-        <button>Search</button>
         <button
-          style={activeTab === "electricity" ? styles.activeBtn : styles.btn}
+          style={styles.tabButton}
           onClick={() => setActiveTab("electricity")}
         >
           ⚡ Electricity
         </button>
 
         <button
-          style={activeTab === "travel" ? styles.activeBtn : styles.btn}
+          style={styles.tabButton}
           onClick={() => setActiveTab("travel")}
         >
-          🚗 Travel
+          ✈ Travel
         </button>
 
         <button
-          style={activeTab === "fuel" ? styles.activeBtn : styles.btn}
+          style={styles.tabButton}
           onClick={() => setActiveTab("fuel")}
         >
           ⛽ Fuel
         </button>
       </div>
 
-      {/* Tables */}
-      <div style={styles.card}>
-        {activeTab === "electricity" && renderTable(electricity)}
-        {activeTab === "travel" && renderTable(travel)}
-        {activeTab === "fuel" && renderTable(fuel)}
+      <div style={styles.tableContainer}>
+        {filteredData.length > 0 ? (
+          <table style={styles.table}>
+            <thead>
+              <tr>
+                {Object.keys(filteredData[0]).map((key) => (
+                  <th key={key} style={styles.th}>
+                    {key}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+
+            <tbody>
+              {filteredData.map((row, index) => (
+                <tr key={index}>
+                  {Object.values(row).map((value, i) => (
+                    <td key={i} style={styles.td}>
+                      {value}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <h3>No data available</h3>
+        )}
       </div>
     </div>
   );
@@ -97,54 +151,70 @@ function App() {
 
 const styles = {
   container: {
-    fontFamily: "Arial",
     padding: "20px",
-    background: "#f5f7fb",
-    minHeight: "100vh"
+    fontFamily: "Arial",
+    background: "#f4f6f9",
+    minHeight: "100vh",
   },
-  title: {
-    marginBottom: "20px"
-  },
-  tabs: {
-    display: "flex",
-    gap: "10px",
-    marginBottom: "20px"
-  },
-  btn: {
-    padding: "10px 15px",
+
+  search: {
+    padding: "10px",
+    width: "300px",
+    marginBottom: "20px",
+    borderRadius: "5px",
     border: "1px solid #ccc",
-    background: "#fff",
-    cursor: "pointer",
-    borderRadius: "6px"
   },
-  activeBtn: {
-    padding: "10px 15px",
-    border: "1px solid #007bff",
-    background: "#007bff",
+
+  buttonRow: {
+    marginBottom: "20px",
+  },
+
+  button: {
+    padding: "10px 20px",
+    marginRight: "10px",
+    border: "none",
+    borderRadius: "5px",
+    backgroundColor: "#4CAF50",
     color: "white",
     cursor: "pointer",
-    borderRadius: "6px"
   },
-  card: {
+
+  tabs: {
+    marginBottom: "20px",
+  },
+
+  tabButton: {
+    padding: "10px 20px",
+    marginRight: "10px",
+    border: "none",
+    borderRadius: "5px",
+    backgroundColor: "#2196F3",
+    color: "white",
+    cursor: "pointer",
+  },
+
+  tableContainer: {
+    overflowX: "auto",
     background: "white",
-    padding: "15px",
+    padding: "10px",
     borderRadius: "10px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
   },
+
   table: {
     width: "100%",
-    borderCollapse: "collapse"
+    borderCollapse: "collapse",
   },
+
   th: {
     border: "1px solid #ddd",
     padding: "10px",
-    background: "#f0f0f0",
-    textAlign: "left"
+    backgroundColor: "#f2f2f2",
   },
+
   td: {
     border: "1px solid #ddd",
-    padding: "8px"
-  }
+    padding: "10px",
+  },
 };
 
 export default App;
