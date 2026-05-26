@@ -1,0 +1,94 @@
+# Decision Log – Breathe ESG Dashboard
+
+## Project Overview
+
+For this project, I decided to build a simple ESG Dashboard that can display and manage sustainability-related datasets in a clear and interactive way. The goal was to understand how ESG data can be handled using a full-stack web application.
+
+The project mainly focuses on electricity usage, travel records, and fuel/material procurement data.
+
+---
+
+## Why I Chose React and Django
+
+I selected React.js for the frontend because it makes it easier to create interactive user interfaces and dynamically display tables and buttons.
+
+For the backend, I used Django REST Framework because it provides a simple way to create APIs and send data from CSV files to the frontend.
+
+This combination also helped me understand how frontend and backend systems communicate in real-world applications.
+
+---
+
+## Data Handling Decisions
+
+Instead of using a complex database, I chose CSV files for storing ESG data. This made the project easier to manage and allowed quick testing during development.
+
+The CSV files were converted into JSON format through Django APIs so that the React frontend could display them properly.
+
+Separate datasets were maintained for:
+- Electricity
+- Travel
+- Fuel and Materials
+
+---
+
+## Dashboard Design Choices
+
+I kept the user interface simple and readable instead of making it overly complex.
+
+The dashboard includes:
+- Search bar
+- Upload button
+- Review button
+- Separate tabs for ESG categories
+- Data tables for viewing records
+
+The main focus was functionality and clarity rather than advanced styling.
+
+---
+
+## API Structure
+
+Different API routes were created for each ESG category to keep the backend organized.
+
+Examples:
+- `/electricity/`
+- `/travel/`
+- `/fuel/`
+
+This helped in testing and debugging each module independently.
+
+---
+
+## Deployment Decisions
+
+For deployment:
+- The frontend was deployed using Vercel
+- The backend was deployed using Render
+- GitHub was used for version control and project hosting
+
+This setup allowed the project to run online and be accessible through a browser.
+
+---
+
+## Challenges Faced During Development
+
+Several issues were faced during development, including:
+- JSON parsing errors caused by invalid CSV values
+- Deployment connection issues between frontend and backend
+- Git commit and push issues
+- Mobile responsiveness limitations
+
+These problems were solved through debugging, updating API links, and fixing data formatting issues.
+
+---
+
+## Final Outcome
+
+The final project successfully demonstrates:
+- ESG data visualization
+- Frontend and backend integration
+- REST API usage
+- Deployment workflow using modern platforms
+- Basic ESG reporting dashboard functionality
+
+This project also improved my understanding of full-stack development and deployment processes.
