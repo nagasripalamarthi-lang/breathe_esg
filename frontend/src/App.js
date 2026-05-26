@@ -59,6 +59,10 @@ function App() {
 
       {/* Tabs */}
       <div style={styles.tabs}>
+        <input type="file" />
+        <button>Upload</button>
+        <button>Review</button>
+        <button>Search</button>
         <button
           style={activeTab === "electricity" ? styles.activeBtn : styles.btn}
           onClick={() => setActiveTab("electricity")}
