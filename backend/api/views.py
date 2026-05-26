@@ -1,18 +1,27 @@
-from django.http import JsonResponse
 import pandas as pd
-import numpy as np
+from django.http import JsonResponse
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+
 def electricity_data(request):
-    df = pd.read_csv('data/utility_electricity.csv')
-    df = df.replace({np.nan: None})
-    data = df.head(10).to_dict(orient='records')
-    return JsonResponse(data, safe=False)
+    file_path = DATA_DIR / "utility_electricity.csv"
+    df = pd.read_csv(file_path)
+    df = df.fillna("")
+    return JsonResponse(df.to_dict(orient="records"), safe=False)
+
+
 def travel_data(request):
-    df = pd.read_csv('data/travel_data.csv')
-    df = df.replace({np.nan: None})
-    data = df.head(10).to_dict(orient='records')
-    return JsonResponse(data, safe=False)
+    file_path = DATA_DIR / "travel_data.csv"
+    df = pd.read_csv(file_path)
+    df = df.fillna("")
+    return JsonResponse(df.to_dict(orient="records"), safe=False)
+
+
 def fuel_data(request):
-    df = pd.read_csv('data/sap_fuel_procurement.csv')
-    data = df.head(10).to_dict(orient='records')
-    df = df.replace({np.nan: None})
-    return JsonResponse(data, safe=False)
+    file_path = DATA_DIR / "sap_fuel_procurement.csv"
+    df = pd.read_csv(file_path)
+    df = df.fillna("")
+    return JsonResponse(df.to_dict(orient="records"), safe=False)
