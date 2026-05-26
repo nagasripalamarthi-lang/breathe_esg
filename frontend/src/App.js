@@ -65,17 +65,17 @@ function App() {
   const fileInputRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/electricity/")
+    fetch("https://breathe-esg-1-n3wz.onrender.com/electricity/")
       .then((res) => res.json())
       .then((data) => setElectricity(data))
       .catch((err) => console.error(err));
 
-    fetch("http://127.0.0.1:8000/travel/")
+    fetch("https://breathe-esg-1-n3wz.onrender.com/travel/")
       .then((res) => res.json())
       .then((data) => setTravel(data))
       .catch((err) => console.error(err));
 
-    fetch("http://127.0.0.1:8000/fuel/")
+    fetch("https://breathe-esg-1-n3wz.onrender.com/fuel/")
       .then((res) => res.json())
       .then((data) => setFuel(data))
       .catch((err) => console.error(err));
