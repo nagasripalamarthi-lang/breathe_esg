@@ -5,6 +5,7 @@
 Breathe ESG Dashboard is a simple web-based application developed to manage and visualize ESG (Environmental, Social, and Governance) related datasets.
 
 The project was created to understand how ESG reporting systems work and how sustainability data can be displayed using a full-stack web application.
+The dashboard allows analysts to review,edit,and remove ESG records directly from the interface for simplified data validation.
 
 The dashboard mainly focuses on:
 - Electricity consumption
@@ -45,6 +46,8 @@ The dashboard mainly focuses on:
 - API integration between frontend and backend
 - Separate ESG category views
 - Online deployment support
+- edit existing ESG entries
+- Delete ESG entries
 
 ---
 
