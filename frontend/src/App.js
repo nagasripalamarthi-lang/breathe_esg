@@ -10,15 +10,15 @@ function App() {
   useEffect(() => {
     fetch("https://breathe-esg-1-n3wz.onrender.com/electricity/")
       .then(res => res.json())
-      .then(data => setElectricity(data));
+      .then(data => {console.log(data);setElectricity(data)});
 
     fetch("https://breathe-esg-1-n3wz.onrender.com/travel/")
       .then(res => res.json())
-      .then(data => setTravel(data));
+      .then(data => {console.log(data);setTravel(data)});
 
     fetch("https://breathe-esg-1-n3wz.onrender.com/fuel/")
       .then(res => res.json())
-      .then(data => setFuel(data));
+      .then(data => {console.log(data);setFuel(data)});
   }, []);
 
   const renderTable = (data) => {
