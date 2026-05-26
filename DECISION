@@ -90,5 +90,8 @@ The final project successfully demonstrates:
 - REST API usage
 - Deployment workflow using modern platforms
 - Basic ESG reporting dashboard functionality
+##UI Interaction Decisions
+simple edit and delete functionlity was added to simulate analyst correction workflows commonly required in ESG reporting systems.
+A lightweight frontend-only implementation was chosen instead of building a complete backend persistence workflow within the assignment timeline.
 
 This project also improved my understanding of full-stack development and deployment processes.
