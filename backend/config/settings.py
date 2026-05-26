@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-heol8(d8p$+6chadyf9ez_qo2_5^^9rdeh82n(y01%^gsbqc*u
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://breathe-esg-umber.vercel.app",]
 
 
 # Application definition
