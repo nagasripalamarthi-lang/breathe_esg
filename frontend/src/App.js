@@ -2,6 +2,57 @@ import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
 
 function App() {
+
+  const handleEdit = (index) => {
+
+  const updatedData = [...currentData];
+
+  const row = updatedData[index];
+
+  Object.keys(row).forEach((key) => {
+
+    const newValue = prompt(
+      `Edit ${key}`,
+      row[key]
+    );
+
+    if (newValue !== null) {
+      row[key] = newValue;
+    }
+
+  });
+
+  if (activeTab === "electricity") {
+    setElectricity(updatedData);
+  }
+
+  if (activeTab === "travel") {
+    setTravel(updatedData);
+  }
+
+  if (activeTab === "fuel") {
+    setFuel(updatedData);
+  }
+};
+  const handleDelete = (index) => {
+
+  const updatedData = currentData.filter(
+    (_, i) => i !== index
+  );
+
+  if (activeTab === "electricity") {
+    setElectricity(updatedData);
+  }
+
+  if (activeTab === "travel") {
+    setTravel(updatedData);
+  }
+
+  if (activeTab === "fuel") {
+    setFuel(updatedData);
+  }
+};
+
   const [activeTab, setActiveTab] = useState("electricity");
 
   const [electricity, setElectricity] = useState([]);
@@ -45,6 +96,7 @@ function App() {
 
   const handleReview = () => {
     const total = currentData.length;
+
     setReviewMessage(
       `Review completed. Total records in ${activeTab}: ${total}`
     );
@@ -126,6 +178,8 @@ function App() {
                     {key}
                   </th>
                 ))}
+
+                <th style={styles.th}>Actions</th>
               </tr>
             </thead>
 
@@ -137,6 +191,19 @@ function App() {
                       {value}
                     </td>
                   ))}
+
+                  <td style={styles.td}>
+                    <button onClick={() => handleEdit(index)}>
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() => handleDelete(index)}
+                      style={{ marginLeft: "10px" }}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
